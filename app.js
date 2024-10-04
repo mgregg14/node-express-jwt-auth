@@ -12,9 +12,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb://localhost:27017/cluster2'; 
-
-
+const dbURI = 'mongodb://localhost:27017/cluster2';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
