@@ -16,6 +16,17 @@ const userSchema = new mongoose.Schema({
         minlength: [6, 'Minimum password length is 6 characters'],
     }
 });
+//fire function after doc saved to db
+userSchema.post('save', function (doc, next) {
+    console.log('New user created and saved', doc);
+    next();
+});
+
+//fire funct before doc saves to DB
+userSchema.pre('save', function (next) {
+    console.log('User about to be created and saved', this);
+    next();
+});
 
 const User = mongoose.model('User', userSchema);
 
